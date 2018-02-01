@@ -1,0 +1,10 @@
+$su -
+#nano /etc/default/grub
+
+Add this to the other GRUB_ options: GRUB_HIDDEN_TIMEOUT=0
+Change GRUB_TIMEOUT=5 to GRUB_TIMEOUT=0
+
+#update-grub
+Reboot machine to test
+
+TO ACCESS GRUB:  Hold SHIFT before grub loads.
