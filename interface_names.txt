@@ -1,0 +1,26 @@
+AS ROOT:
+# nano /etc/default/grub
+Find: GRUB_CMDLINE_LINUX=""
+Replace with: GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+CTRL+X
+# update-grub
+# nano /etc/network/interfaces
+For DHCP add:
+--start here--
+auto eth0
+iface eth0 inet dhcp
+--end here--
+
+For static add:
+--start here--
+auto eth0
+iface eth0 inet static
+    address <DESIRED ADDRESS>
+    netmask <YOUR NETMASK>
+    gateway <YOUR GATEWAY>
+--end here--
+# mv /etc/resolv.conf /etc/resolv.conf.save
+# nano /etc/resolv.conf
+Add: nameserver 8.8.8.8
+You can have a total of 3 DNS servers in /etc/resolv.conf
+# reboot NOW
