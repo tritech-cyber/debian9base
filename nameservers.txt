@@ -1,5 +1,4 @@
 add this to /etc/resolv.conf for dns servers
-
-nameserver 8.8.8.8
 nameserver 10.40.0.14
 nameserver 10.40.0.25
+nameserver 8.8.8.8
