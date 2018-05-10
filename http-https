@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+ServerName euler.ioe
+<Location />
+Redirect permanent / https://euler.ioe
+</Location>
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName euler.ioe
+DocumentRoot /y/https/euler
+<Directory /y/https/euler>
+                Options Indexes FollowSymLinks
+                IndexOptions FancyIndexing VersionSort NameWidth=*
+                AllowOverride All
+                Require all granted
+        </Directory>
+        SSLEngine On
+        SSLCertificateFile /etc/ssl/localcerts/apache.pem
+        SSLCertificateKeyFile /etc/ssl/localcerts/apache.key
+</VirtualHost>
+
+#http://linuxtechlab.com/redirect-http-to-https-apache-server/
